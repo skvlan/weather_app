@@ -1,0 +1,28 @@
+```gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Virtualenv
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Pytest cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+.idea/
+
+# .env files
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
