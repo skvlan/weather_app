@@ -24,13 +24,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Black (code formatter)
+    - name: Run Black
       run: |
         black --check .
 
-    - name: Run Flake8 (style guide check)
-      run: |
-        flake8 .
+    - name: Run flake8
+      run: flake8 . --config=.flake8
 
     - name: Run tests with pytest
       run: |
