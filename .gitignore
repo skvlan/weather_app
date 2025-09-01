@@ -13,11 +13,6 @@ env/
 venv/
 ENV/
 
-# Dev. packages
-.flake8
-.black
-.black.toml
-
 # Pytest cache
 .pytest_cache/
 .coverage
