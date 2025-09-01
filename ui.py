@@ -1,6 +1,13 @@
-from PyQt5.QtWidgets import QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QSizePolicy
+from PyQt5.QtWidgets import (
+    QWidget,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QVBoxLayout,
+    QHBoxLayout,
+    QSizePolicy,
+)
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont
 
 from utils import get_weather_emoji
 from weather_api import get_weather_data
@@ -40,7 +47,12 @@ class WeatherApp(QWidget):
         central_layout = QVBoxLayout()
         central_layout.setSpacing(20)
 
-        for label in [self.icon_label, self.temperature_label, self.city_label, self.description_label]:
+        for label in [
+            self.icon_label,
+            self.temperature_label,
+            self.city_label,
+            self.description_label,
+        ]:
             label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
             label.setAlignment(Qt.AlignCenter)
 
@@ -63,7 +75,8 @@ class WeatherApp(QWidget):
 
         self.setLayout(main_layout)
 
-        self.setStyleSheet("""
+        self.setStyleSheet(
+            """
             QWidget {
                 background: #4facfe;
                 color: white;
@@ -74,10 +87,9 @@ class WeatherApp(QWidget):
                 padding: 12px 24px;
                 border-radius: 20px;
                 border: none;
-                background: #12264B;  
+                background: #12264B;
                 color: white;
             }
-            
             QLineEdit::placeholder {
                 color: rgba(255,255,255,0.7);
             }
@@ -120,7 +132,8 @@ class WeatherApp(QWidget):
             QLabel#icon_label {
                 font-size: 220px;
             }
-        """)
+        """
+        )
 
         self.get_weather_button.clicked.connect(self.get_weather)
 

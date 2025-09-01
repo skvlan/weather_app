@@ -1,3 +1,7 @@
 PyQt5
 requests
 pytest
+pytest-qt
+flake8
+black
+python-dotenv

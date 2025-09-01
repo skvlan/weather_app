@@ -1,5 +1,3 @@
-
-
 def get_weather_emoji(weather_id):
     if 200 <= weather_id <= 232:
         return "⛈️"
