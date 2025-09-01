@@ -19,7 +19,8 @@ def test_mocked_success(mock_get):
         "main": {"temp": 280, "humidity": 70},
         "weather": [{"id": 800, "description": "clear sky"}],
         "wind": {"speed": 3.5},
-        "name": "London"}
+        "name": "London",
+    }
     mock_get.return_value = mock_response
 
     data, error = get_weather_data("London")
