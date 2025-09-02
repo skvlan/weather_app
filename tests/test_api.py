@@ -2,10 +2,19 @@ from unittest.mock import patch, MagicMock
 from weather_api import get_weather_data
 
 
-def test_invalid_city():
+@patch("weather_api.requests.get")
+def test_invalid_city(mock_get):
+    mock_response = MagicMock()
+    mock_response.status_code = 404
+    mock_response.ok = False
+    mock_response.raise_for_status.side_effect = Exception("city not found")
+    mock_response.json.return_value = {"cod": "404", "message": "city not found"}
+    mock_get.return_value = mock_response
+
     data, error = get_weather_data("somecitythatdoesnotexist123")
+
     assert data is None
-    assert "Error" in error or "not found" in error.lower()
+    assert "not found" in error.lower()
 
 
 @patch("weather_api.requests.get")
