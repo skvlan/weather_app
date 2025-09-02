@@ -7,13 +7,14 @@ def test_invalid_city(mock_get):
     mock_response = MagicMock()
     mock_response.status_code = 404
     mock_response.ok = False
-    mock_response.raise_for_status.side_effect = Exception("city not found")
+    mock_response.raise_for_status.return_value = None
     mock_response.json.return_value = {"cod": "404", "message": "city not found"}
     mock_get.return_value = mock_response
 
     data, error = get_weather_data("somecitythatdoesnotexist123")
 
     assert data is None
+    assert error is not None
     assert "not found" in error.lower()
 
 
